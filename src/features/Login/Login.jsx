@@ -5,6 +5,7 @@ import MainStore from "@/features/MainStore.js";
 import {Button} from "@/components/ui/button.jsx";
 import {observer} from "mobx-react-lite";
 import { useNavigate } from 'react-router-dom';
+import {toJS} from "mobx";
 
 
 const Login = observer(() => {
@@ -13,6 +14,7 @@ const Login = observer(() => {
     useEffect(() => {
         (async ()=> {
             await MainStore.getData()
+            console.log(toJS(MainStore.users))
         })()
     }, [])
 
